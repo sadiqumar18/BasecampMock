@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get :register, to: "auth#register"
   get :logout, to: "auth#logout"
 
+  root to: "auth#register"
   # other routes
 
   resources :tasks
