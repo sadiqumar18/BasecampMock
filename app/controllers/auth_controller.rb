@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+  include SessionHelper
   skip_before_action :verify_authenticity_token
 
   def login
@@ -8,9 +9,9 @@ class AuthController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      render "/dashboard"
+      redirect_to "/"
     else
-      render "auth/login"
+      render "auth/login", flash: { error: "invalid email/password" }
     end
   end
 
@@ -19,12 +20,12 @@ class AuthController < ApplicationController
   end
 
   def create_account
-    user = User.new(sign_up_params)
+    @user = User.new(sign_up_params)
 
-    if user.save
+    if @user.save
       render "/dashboard"
     else
-      redirect_to "/login", flash: { error: "Unable to create account" }
+      redirect_to "/login", flash: { error: @user.errors.messages }
     end
   end
 
