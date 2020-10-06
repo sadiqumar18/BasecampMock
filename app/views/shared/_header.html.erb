@@ -4,10 +4,19 @@
             <h1>BASECAMP</h1>
         </div>
         <div class="header-main-links">
-            <span>Projects</span>
-            <span>Users</span>
-            <%= link_to  "login" do %>
-                <span>Register | Login</span>
+            <% if !logged_in? %>
+                <% if request.path == "/login" %>
+                    <%= link_to  "register" do %>
+                        <span>Register</span>
+                    <% end %>
+                <% else %>
+                    <%= link_to  "login" do %>
+                        <span>Login</span>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <span>Projects</span>
+                <span>Users</span>
             <% end %>
         </div>   
     </div>
