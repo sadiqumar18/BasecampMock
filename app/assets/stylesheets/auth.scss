@@ -16,7 +16,7 @@
 }
 
 .auth-register-message {
-    width: 60%;
+    min-width: 60%;
     height: 100%;
     border-radius: 5px;
     display: grid;
@@ -24,10 +24,15 @@
 }
 
 .auth-register-form {
-    width: 30%;
+    min-width: 35%;
     height: 100%;
     box-shadow: 0px 0px 2px rgba(0,0,0,0.4);
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
 }
 
 .message {
@@ -43,5 +48,65 @@
     p {
         font-size: 20px;
         padding: 2px 0px;
+    }
+}
+
+.form-container {
+    height: 90%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .actions {
+        padding: 10px 0px;
+    }
+
+    .action-button {
+        display: inline-block;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        margin-bottom: 1rem;
+        margin-top: -5px;
+        cursor: pointer;
+        color: white;
+        background-color: black;
+        border: 1px solid transparent;
+        border-radius: 3px;
+
+        &:hover {
+            transition: all 0.25s ease-in-out;
+            color: black;
+            background-color: white;
+            border: 1px solid black;
+        }
+    }
+}
+
+.form-container-element {
+    display: flex;
+    flex-direction: column;
+    padding: 7px 0px;
+    width: 100%;
+
+    & .form-container__input {
+        border: 0.5px solid grey;
+        padding: 5px 4px;
+        border-radius: 3px;
+        margin: 2px 0px;
+        display: inline-block;
+        width: 100%;
+        outline: 0;
+
+        &:focus {
+            transition: all 0.25s ease-in-out;
+            border: 0.5px solid black;
+        }
+    }
+
+    & .form-container__label {
+        font-size: 13px;
+        color: black;
     }
 }
