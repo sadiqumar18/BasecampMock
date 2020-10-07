@@ -1,0 +1,32 @@
+<%= form_with(model: user, local: true, class: "form-container") do |form| %>
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "First Name", class: "form-container__label") %>
+        <%= form.text_field(:firstName, class: "form-container__input") %>
+    </div>
+
+    <div class="form-container-element">   
+        <%= label_tag(:firstName, "Last Name", class: "form-container__label") %> 
+        <%= form.text_field :lastName, class: "form-container__input" %>
+    </div>  
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Email", class: "form-container__label") %>
+        <%= form.text_field :email, class: "form-container__input" %>
+    </div> 
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Password", class: "form-container__label") %>
+        <%= form.text_field :password, class: "form-container__input" %>
+    </div> 
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Confirm Password", class: "form-container__label") %>
+        <%= form.text_field :password_confirmation, class: "form-container__input" %>
+    </div> 
+
+    <div class="actions">
+        <%= form.submit "REGISTER", class: "action-button" %>
+    </div>
+
+<% end %>
