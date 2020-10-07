@@ -9,7 +9,7 @@ class AuthController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to "/"
+      redirect_to "/projects"
     else
       render "auth/login", flash: { error: "invalid email/password" }
     end
@@ -23,7 +23,7 @@ class AuthController < ApplicationController
     @user = User.new(sign_up_params)
 
     if @user.save
-      render "/dashboard"
+      render "/projects"
     else
       redirect_to "/login", flash: { error: @user.errors.messages }
     end
@@ -31,6 +31,7 @@ class AuthController < ApplicationController
 
   def logout
     reset_session
+    redirect_to "/login"
   end
 
   protected
