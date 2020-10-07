@@ -1,5 +1,6 @@
 <%= form_with(model: user, local: true, class: "form-container") do |form| %>
 
+    <div class="form-elements-container">
     <% if request.path == "/register" %>
     <div class="form-container-element">
         <%= label_tag(:firstName, "First Name", class: "form-container__label") %>
@@ -28,6 +29,7 @@
         <%= form.text_field :password_confirmation, class: "form-container__input" %>
     </div> 
     <% end %>
+    </div>
 
     <div class="actions">
         <% if request.path == "/register" %>
