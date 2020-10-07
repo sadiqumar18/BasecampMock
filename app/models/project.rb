@@ -1,9 +1,8 @@
 class Project < ApplicationRecord
+  validates(:name, presence: true)
+  validates(:description, presence: true)
+  validates_uniqueness_of(:name)
 
-    validates :name, presence: true
-    validates :description, presence: true
-
-    has_many :tasks
-    belongs_to :user
-
+  has_many :tasks
+  belongs_to :user
 end

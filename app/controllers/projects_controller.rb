@@ -8,9 +8,9 @@ class ProjectsController < ApplicationController
   def index
     if current_user.is_admin
       @projects = Project.order(id: :desc)
+    else
+      @projects = current_user.projects
     end
-
-    @projects = Project.where(id: current_user.id)
   end
 
   # GET /projects/1
