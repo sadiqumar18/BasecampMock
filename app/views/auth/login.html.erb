@@ -1,5 +1,9 @@
 <%= stylesheet_link_tag "auth" %>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <div class="auth-register-container">
     <div class="auth-register">
         <div class="auth-register-message">
@@ -18,9 +22,9 @@
             </div>
         </div>
         <div class="auth-register-form">
+            <h3>INPUT YOUR DETAILS</h3>
+            <%= render 'form', user: @user %>
         </div>
     </div>
 </div>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+
