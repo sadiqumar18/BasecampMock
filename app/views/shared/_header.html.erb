@@ -1,8 +1,8 @@
 <nav id="navbar" class="header-main">
-    <div class="header-main-container"> 
-        <div class="header-main-logo">
-            <h1>BASECAMP</h1>
-        </div>
+    <div class="header-main-container">
+            <div class="header-main-logo">
+                <h1>BASECAMP</h1>
+            </div>
         <div class="header-main-links">
             <% if !logged_in? %>
                 <% if request.path == "/login" %>
@@ -15,8 +15,13 @@
                     <% end %>
                 <% end %>
             <% else %>
-                <span>Projects</span>
+                <%= link_to "projects" do %>
+                    <span>PROJECTS</span>
+                <% end %>
                 <span>Users</span>
+                <%= link_to "logout" do %>
+                    <span>LOG OUT</span>
+                <% end %>
             <% end %>
         </div>   
     </div>
