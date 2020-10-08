@@ -9,23 +9,24 @@
 
       <div class="project-view-container">
         <% @projects.each do |project| %>
-        <%= print project %>
-        <%= link_to project do %>
-          <div class="card">
-            <div class="card-content-container">
-                <header class="card-header">
-                  <h3><%= project.name %></h3>
-                </header>
-                <div class="card-content-summary">
-                  <p><%= project.description.first(25) %>....<p>
-                </div>
+          
+            <div class="card">
+              <div class="card-content-container">
+                <%= link_to project do %>
+                  <header class="card-header">
+                    <h3><%= project.name %></h3>
+                  </header>
+                <% end %>
+                  <div class="card-content-summary">
+                    <p><%= project.description.first(25) %>....<p>
+                  </div>
+              </div>
+              <div class="card-content-methods">
+                <%= link_to 'Edit', edit_project_path(project), class: "edit text" %>
+                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete text" %>
+              </div>
             </div>
-            <div class="card-content-methods">
-              <%= link_to 'Edit', edit_project_path(project) %>
-              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </div>
-        <% end %>
+          
         <% end %>
       </div>
 
