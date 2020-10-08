@@ -88,3 +88,27 @@ body {
     background: white;
 }
 
+.text {
+    padding: 10px 15px;
+    margin: 0px 5px;
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.edit:hover {
+    transition: all 0.25s ease-out;
+    background-color: yellow;
+    color: black;
+    border: 1px solid white;
+}
+
+.delete:hover {
+    transition: all 0.25s ease-out;
+    background-color: red;
+    color: white; 
+    border: 1px solid white;   
+}
+
