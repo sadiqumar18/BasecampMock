@@ -1,13 +1,20 @@
 <%= stylesheet_link_tag "project" %>
+<p id="notice"><%= notice %></p>
 <div class="projects-container">
 
-<p id="notice"><%= notice %></p>
+<div class="project-show-container">
 
-<p><%= @project.name %></p>
+<div class="project-show-header">
+<h1><%= @project.name %></h1>
+</div>
+
+<div class="project-show-content">
 <p><%= @project.description %></p>
-
+</div>
 <div>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</div>
+
 </div>
 </div>
