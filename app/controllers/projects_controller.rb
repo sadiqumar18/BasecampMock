@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
       @projects = Project.order(id: :desc)
     end
 
-    @projects = Project.where(id: current_user.id)
+    @projects = Project.where(user_id: current_user.id)
   end
 
   # GET /projects/1
