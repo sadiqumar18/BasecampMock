@@ -100,15 +100,15 @@ body {
 
 .edit:hover {
     transition: all 0.25s ease-out;
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.301);
     color: black;
-    border: 1px solid white;
+    border: 1px solid black;
 }
 
 .delete:hover {
     transition: all 0.25s ease-out;
-    background-color: red;
-    color: white; 
-    border: 1px solid white;   
+    background-color: rgba(255, 0, 0, 0.301);
+    color: black; 
+    border: 1px solid black;   
 }
 
