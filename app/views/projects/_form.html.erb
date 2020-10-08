@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true) do |form| %>
+<%= form_with(model: project, local: true, class: "form-container") do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,7 +11,24 @@
     </div>
   <% end %>
 
+  <div class="form-element-container">
+    <div class="form-container-title">
+      <%= label_tag(:name, "Title", class: "form-container__label-title") %>
+      <%= form.text_field :name, class: "form-container__input-title" %>
+    </div>
+
+    <div class="form-container-description">
+      <%= label_tag(:description, "Description", class: "form-container__label-description") %>
+      <%= form.text_area :description, class: "form-container__input-description" %>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <% if request.path == "/projects/new" %>
+        <%= form.submit "New Project", class: "action-button" %>
+    <% end %>
+    <% if request.path.include?("edit") %>
+        <%= form.submit "Update Project", class: "action-button" %>
+    <% end %>
   </div>
 <% end %>
