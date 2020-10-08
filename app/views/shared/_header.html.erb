@@ -1,7 +1,9 @@
 <nav id="navbar" class="header-main">
     <div class="header-main-container">
             <div class="header-main-logo">
-                <h1>BASECAMP</h1>
+                <%= link_to "/" do %>
+                    <h1>BASECAMP</h1>
+                <% end %>
             </div>
         <div class="header-main-links">
             <% if !logged_in? %>
@@ -15,7 +17,7 @@
                     <% end %>
                 <% end %>
             <% else %>
-                <%= link_to "projects" do %>
+                <%= link_to "/" do %>
                     <span>PROJECTS</span>
                 <% end %>
                 <span>Users</span>
