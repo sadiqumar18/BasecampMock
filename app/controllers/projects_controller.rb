@@ -9,10 +9,8 @@ class ProjectsController < ApplicationController
     if current_user.is_admin
       @projects = Project.order(id: :desc)
     else
-      @projects = Project.where(user_id: current_user.id)
+      @projects = current_user.projects
     end
-
-   
   end
 
   # GET /projects/1
