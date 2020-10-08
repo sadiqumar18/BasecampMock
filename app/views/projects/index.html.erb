@@ -5,42 +5,42 @@
 
   <div class="projects-content-container">
     <div class="projects-view-container">
-    <h1>Projects</h1>
+      <h1>Projects</h1>
 
-    <div class="project-view-container">
-      <% @projects.each do |project| %>
-      <%= print project %>
-      <%= link_to project do %>
-        <div class="card">
-          <div class="card-content-container">
-              <header class="card-header">
-                <h3><%= project.name %></h3>
-              </header>
-              <div class="card-content-summary">
-                <p><%= project.description.first(25) %>....<p>
-              </div>
+      <div class="project-view-container">
+        <% @projects.each do |project| %>
+        <%= print project %>
+        <%= link_to project do %>
+          <div class="card">
+            <div class="card-content-container">
+                <header class="card-header">
+                  <h3><%= project.name %></h3>
+                </header>
+                <div class="card-content-summary">
+                  <p><%= project.description.first(25) %>....<p>
+                </div>
+            </div>
+            <div class="card-content-methods">
+              <%= link_to 'Edit', edit_project_path(project) %>
+              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
           </div>
-          <div class="card-content-methods">
-            <%= link_to 'Edit', edit_project_path(project) %>
-            <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
+        <% end %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="new-project-container">
+      <%= link_to new_project_path do %>
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 48 48"><title>ic_plus_one_48px</title>
+              <g fill="#000">
+                  <path d="M20 16h-4v8H8v4h8v8h4v-8h8v-4h-8zm9-3.84v3.64l5-1V36h4V10z"></path>
+              </g>
+          </svg>
+          <h3>ADD NEW PROJECT</h3>
         </div>
       <% end %>
-      <% end %>
     </div>
-
-    </div>
-    <%= link_to new_project_path do %>
-    <div class="new-project-container">
-      <div class="svg-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 48 48"><title>ic_plus_one_48px</title>
-            <g fill="#000">
-                <path d="M20 16h-4v8H8v4h8v8h4v-8h8v-4h-8zm9-3.84v3.64l5-1V36h4V10z"></path>
-            </g>
-        </svg>
-        <h3>ADD NEW PROJECT</h3>
-      </div>
-    </div>
-    <% end %>
     </div>
 </div>
