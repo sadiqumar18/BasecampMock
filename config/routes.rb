@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  root :to => "projects#index"
+
   # registration and login routes
 
   #handles registration
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
 
   get :logout, to: "auth#logout"
 
-  root to: "auth#register"
   # other routes
 
   resources :tasks
