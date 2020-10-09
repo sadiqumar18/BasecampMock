@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   get :login, to: "auth#login"
   post :login, to: "auth#login"
 
-  get :logout, to: "auth#logout"
+  get :logout, to: "auth#logout", as: "logout"
 
   # other routes
 
   resources :tasks
   resources :projects
-  resources :users
+  resources :users, as: "users"
 end

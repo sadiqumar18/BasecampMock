@@ -20,8 +20,10 @@
                 <%= link_to "/" do %>
                     <span>PROJECTS</span>
                 <% end %>
-                <span>Users</span>
-                <%= link_to "logout" do %>
+                <%= link_to users_path do %>
+                    <span>Users</span>
+                <% end %>
+                <%= link_to logout_path do %>
                     <span>LOG OUT</span>
                 <% end %>
             <% end %>
