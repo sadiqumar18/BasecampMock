@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.header-main {
+    height: 15vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    background-color: rgba(255,255,255,0.9);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.header-main-container {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-main-logo {
+    h1 {
+        font-family: 'Secular One', sans-serif;
+    }
+}
+
+.header-main-links {
+    span {
+        padding: 5px 10px;
+        color: grey;
+        border-bottom: 1px solid transparent;
+        text-shadow: 0.5px 0.5px 0.5px rgba(0,0,0,0.2);
+        text-transform: uppercase;
+
+        &:hover {
+            transition: all 0.25s ease-in;
+            color: black;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+        }
+    }
+}
+
+.content-container {
+    width: 75%;
+    margin: auto;
+    margin-top: calc(15vh + 25px);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.9);
+    border-radius: 5%;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+.text {
+    padding: 10px 15px;
+    margin: 0px 5px;
+    border: 1px solid transparent;
+    background-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.edit:hover {
+    transition: all 0.25s ease-out;
+    background-color: rgba(255, 255, 0, 0.301);
+    color: black;
+    border: 1px solid black;
+}
+
+.delete:hover {
+    transition: all 0.25s ease-out;
+    background-color: rgba(255, 0, 0, 0.301);
+    color: black; 
+    border: 1px solid black;   
+}
+

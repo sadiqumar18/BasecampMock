@@ -1,0 +1,43 @@
+<%= form_with(model: user, local: true, class: "form-container") do |form| %>
+
+    <div class="form-elements-container">
+    <% if request.path == "/register" %>
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "First Name", class: "form-container__label") %>
+        <%= form.text_field(:firstName, class: "form-container__input") %>
+    </div>
+
+    <div class="form-container-element">   
+        <%= label_tag(:firstName, "Last Name", class: "form-container__label") %> 
+        <%= form.text_field :lastName, class: "form-container__input" %>
+    </div>  
+    <% end %>
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Email", class: "form-container__label") %>
+        <%= form.text_field :email, class: "form-container__input" %>
+    </div> 
+
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Password", class: "form-container__label") %>
+        <%= form.text_field :password, type: "password", class: "form-container__input" %>
+    </div> 
+
+    <% if request.path == "/register" %>
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Confirm Password", class: "form-container__label") %>
+        <%= form.text_field :password_confirmation, type: "password", class: "form-container__input" %>
+    </div> 
+    <% end %>
+    </div>
+
+    <div class="actions">
+        <% if request.path == "/register" %>
+            <%= form.submit "SIGN UP", class: "action-button" %>
+        <% end %>
+        <% if request.path == "/login" %>
+            <%= form.submit "SIGN IN", class: "action-button" %>
+        <% end %>
+    </div>
+
+<% end %>

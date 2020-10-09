@@ -1,25 +1,47 @@
+<%= stylesheet_link_tag "project" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<div class="projects-container">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="projects-content-container">
+    <div class="projects-view-container">
+      <h1>Projects</h1>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="project-view-container">
+        <% @projects.each do |project| %>
+          
+            <div class="card">
+              <div class="card-content-container">
+                <%= link_to project do %>
+                  <header class="card-header">
+                    <h3><%= project.name %></h3>
+                  </header>
+                <% end %>
+                  <div class="card-content-summary">
+                    <p><%= project.description.first(25) %>....<p>
+                  </div>
+              </div>
+              <div class="card-content-methods">
+                <%= link_to 'Edit', edit_project_path(project), class: "edit text" %>
+                <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete text" %>
+              </div>
+            </div>
+          
+        <% end %>
+      </div>
 
-<br>
-
-<%= link_to 'New Project', new_project_path %>
+    </div>
+    <div class="new-project-container">
+      <%= link_to new_project_path do %>
+        <div class="svg-container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 48 48"><title>ic_plus_one_48px</title>
+              <g fill="#000">
+                  <path d="M20 16h-4v8H8v4h8v8h4v-8h8v-4h-8zm9-3.84v3.64l5-1V36h4V10z"></path>
+              </g>
+          </svg>
+          <h3>ADD NEW PROJECT</h3>
+        </div>
+      <% end %>
+    </div>
+    </div>
+</div>

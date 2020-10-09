@@ -1,14 +1,14 @@
 <%= stylesheet_link_tag "auth" %>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <div class="auth-register-container">
     <div class="auth-register">
         <div class="auth-register-message">
             <div class="message">
-                <h2>WELCOME TO BASECAMP!</h2>
-                <p>This is a web-based project management tool launched in 2020.</p>
-                <p>Create, Edit and Organize your Projects through Basecamp.</p>
-                <p>Create a profile and save your progress within our database.</p>
-                <p>View other users currently working onprojects through this platform.</p>
+                <h2>WELCOME BACK TO BASECAMP!</h2>
                 <br>
                 <p>Created by: Abubakar Sadiq, Chima Ekeneme and Momoh Nobert.
             </div>
@@ -19,3 +19,4 @@
         </div>
     </div>
 </div>
+
