@@ -23,9 +23,9 @@ class AuthController < ApplicationController
     @user = User.new(sign_up_params)
 
     if @user.save
-      render "/projects"
+      redirect_to "/"
     else
-      redirect_to "/login", flash: { error: @user.errors.messages }
+      redirect_to "/register", flash: { error: @user.errors.messages }
     end
   end
 
