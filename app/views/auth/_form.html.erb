@@ -7,27 +7,27 @@
         <%= form.text_field(:firstName, class: "form-container__input") %>
     </div>
 
-    <div class="form-container-element">   
-        <%= label_tag(:firstName, "Last Name", class: "form-container__label") %> 
+    <div class="form-container-element">
+        <%= label_tag(:firstName, "Last Name", class: "form-container__label") %>
         <%= form.text_field :lastName, class: "form-container__input" %>
-    </div>  
+    </div>
     <% end %>
 
     <div class="form-container-element">
         <%= label_tag(:firstName, "Email", class: "form-container__label") %>
-        <%= form.text_field :email, class: "form-container__input" %>
-    </div> 
+        <%= form.text_field :email, class: "form-container__input", type: "email", placeholder: "Enter Email" %>
+    </div>
 
     <div class="form-container-element">
         <%= label_tag(:firstName, "Password", class: "form-container__label") %>
-        <%= form.text_field :password, type: "password", class: "form-container__input" %>
-    </div> 
+        <%= form.text_field :password, type: "password", class: "form-container__input", placeholder: "E.g password" %>
+    </div>
 
     <% if request.path == "/register" %>
     <div class="form-container-element">
         <%= label_tag(:firstName, "Confirm Password", class: "form-container__label") %>
         <%= form.text_field :password_confirmation, type: "password", class: "form-container__input" %>
-    </div> 
+    </div>
     <% end %>
     </div>
 
