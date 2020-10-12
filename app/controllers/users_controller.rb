@@ -25,6 +25,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user.is_admin
+      @user = User.find(params[:id])
+    end
   end
 
   # POST /users
