@@ -25,6 +25,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user.is_admin
+      @user = User.find(params[:id])
+    end
   end
 
   # POST /users
@@ -83,6 +86,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.fetch(:user, {})
+    params.fetch(:user).permit(:lastName, :firstName, :id, :email, :password)
   end
 end
