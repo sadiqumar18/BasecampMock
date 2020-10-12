@@ -47,6 +47,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      user_details = user_params
+      print(user_details, ">>>>>>>>>>>><<<<<<<<<<<<<")
       if User.find(params[:id]).update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }

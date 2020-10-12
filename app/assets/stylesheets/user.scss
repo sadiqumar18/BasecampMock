@@ -1,0 +1,90 @@
+.users-container {
+  min-height: 75vh;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  // display: grid;
+  // place-items: center;
+  background-color: white;
+  margin-bottom: 10vh;
+  position: relative;
+  padding-top: 3rem;
+}
+
+.users-content-container {
+  width: 90%;
+  padding-top: 1rem;
+  margin: auto;
+}
+.create-user {
+  position: absolute;
+  right: 10px;
+  top: 1rem;
+}
+
+.user-list {
+  padding: 10px;
+}
+
+.user-row {
+  background-color: #ffffff;
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-radius: 5px;
+  // height: 15vh;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+  align-items: center;
+  // border-radius: 5px;
+  border: 1px solid transparent;
+  width: 90%;
+  // margin: 1rem 0;
+  & > div {
+    span,
+    a {
+      margin-right: 0.725rem;
+    }
+    &:first-of-type {
+      flex: 1;
+      text-align: left;
+    }
+    &:last-of-type {
+      // & > a {
+      //   background-color: grey;
+      //   color: #ffffff;
+      //   padding: 0.5rem;
+      // }
+    }
+    margin-right: 5px;
+  }
+}
+
+.form--container {
+  height: 50vh;
+  width: 50vw;
+  padding: 20px 20px;
+  margin: 10px 0px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-container-firstname,
+.form-container-lastname,
+.form-container-email {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.form-container__input-title {
+  width: 20%;
+  padding: 2px 2px;
+  margin: 4px 0px;
+}
+
+.form-container__input-description {
+  padding: 2px 2px;
+  margin: 4px 0px;
+  height: 25vh;
+}

@@ -1,25 +1,23 @@
+<%= stylesheet_link_tag "user" %>
 <p id="notice"><%= notice %></p>
-
-<h1>Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="users-container">
+<div class="users-content-container">
+  <%= link_to 'Create User', new_user_path, class:"create-user text" %>
+  <div class="user-list">
+    <h1>Users</h1>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="user-row">
+      <div>
+        <span><%= user.firstName %></span>
+        <span><%= user.lastName %></span>
+        <span><%= user.email %></span>
+      </div>
+      <div>
+        <%= link_to 'Edit', edit_user_path(user), class:"text" %>
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"text" %>
+      </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+  </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@
 
       <div class="project-view-container">
         <% @projects.each do |project| %>
-          
+
             <div class="card">
               <div class="card-content-container">
                 <%= link_to project do %>
@@ -26,7 +26,7 @@
                 <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete text" %>
               </div>
             </div>
-          
+
         <% end %>
       </div>
 
@@ -43,5 +43,5 @@
         </div>
       <% end %>
     </div>
-    </div>
+  </div>
 </div>
