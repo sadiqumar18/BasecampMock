@@ -25,7 +25,7 @@
 
   <div class="actions">
     <% if request.path == "/projects/new" %>
-        <%= form.submit "New Project", class: "action-button" %>
+        <%= form.submit "Create Project", class: "action-button" %>
     <% end %>
     <% if request.path.include?("edit") %>
         <%= form.submit "Update Project", class: "action-button" %>
