@@ -24,6 +24,17 @@
       <%= label_tag(:email, "Email", class: "form-container__label-title") %>
       <%= form.text_field :email, class: "form-container__input-title" %>
     </div>
+    <div class="form-container-isadmin">
+      <%= label_tag(:is_admin, "Admin Privileges", class: "form-container__label-title") %>
+    <% if user.is_admin %>
+      <%= radio_button_tag("is_admin", true, checked=true) %>
+      <%= radio_button_tag("is_admin", false) %>
+    <% else %>
+      <%= radio_button_tag("is_admin", true) %>
+      <%= radio_button_tag("is_admin", false, checked=true) %>
+    <% end %>
+
+    </div>
   </div>
 
   <div class="actions">
