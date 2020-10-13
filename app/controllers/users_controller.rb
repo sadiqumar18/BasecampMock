@@ -27,6 +27,8 @@ class UsersController < ApplicationController
   def edit
     if current_user.is_admin
       @user = User.find(params[:id])
+    elsif current_user.id != params[:id]
+      redirect_to "/users/#{current_user.id}"
     end
   end
 
@@ -51,8 +53,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       user_details = user_params
-      print(user_details, ">>>>>>>>>>>><<<<<<<<<<<<<")
       if User.find(params[:id]).update(user_params)
+        if current_user.is_admin
+          format.html { redirect_to "/users", notice: "User was successfully updated." }
+        end
         format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else

@@ -27,20 +27,21 @@
 
        <div class="form-container-isadmin">
       <%= label_tag(:is_admin, "Admin Privileges", class: "form-container__label-title") %>
-    <% if user.is_admin %>
-    <input type="radio" id="user_receive_newsletter_yes" name="user[is_admin]" value="true" checked="checked"/>
-   <input type="radio" id="user_receive_newsletter_no" name="user[is_admin]" value="false"/>
-    <% else %>
-      <input type="radio" id="user_receive_newsletter_yes" name="user[is_admin]" value="true" />
-   <input type="radio" id="user_receive_newsletter_no" name="user[is_admin]" value="false" checked="checked"/>
-  
-    <% end %>
+      <% if user.is_admin %>
+      <input type="radio" id="" name="user[is_admin]" value="true" <%= user.is_admin ? checked = "checked" : checked = "" %> />
+      <input type="radio" id="" name="user[is_admin]" value="false" />
+       <% else %>
+      <input type="radio" id="" name="user[is_admin]" value="true"  />
+      <input type="radio" id="" name="user[is_admin]" value="false" <%= user.is_admin ? checked = "" : checked = "checked" %>/>
+    
+      
+      <% end %>
 
     
     </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update User", class: "action-button" %>
   </div>
 <% end %>
