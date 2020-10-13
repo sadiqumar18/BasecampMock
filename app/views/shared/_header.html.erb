@@ -1,5 +1,6 @@
 <nav id="navbar" class="header-main">
     <div class="header-main-container">
+    <%= print "/////////#{current_user.is_admin}\\\\\\\\\\\\" %>
             <div class="header-main-logo">
                 <%= link_to "/" do %>
                     <h1>BASECAMP</h1>
@@ -20,8 +21,10 @@
                 <%= link_to "/" do %>
                     <span>PROJECTS</span>
                 <% end %>
-                <%= link_to users_path do %>
-                    <span>Users</span>
+                <% if current_user.is_admin %>
+                    <%= link_to users_path do %>
+                        <span>Users</span>
+                    <% end %>
                 <% end %>
                 <%= link_to logout_path do %>
                     <span>LOG OUT</span>
