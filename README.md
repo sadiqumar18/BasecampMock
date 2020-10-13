@@ -1,24 +1,35 @@
-# README
+Welcome to BaseCamp!
+===================
+The main objective of this project is to allow the creation, editing and deletion of text based projects created by our authenticated users.
+These users and projects are further vetted by an Administrator within the user class and any user can also be elevated to have administrator access by another administrator.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is created with Ruby On Rails. 
 
-Things you may want to cover:
+This is a project created by Abubakar Sadiq, Chima Ekeneme and Momoh Nobert.
 
-* Ruby version
 
-* System dependencies
+----------
 
-* Configuration
 
-* Database creation
+Installation
+-------------
 
-* Database initialization
+Firstly, you should've installed [Ruby](https://rubyinstaller.org/ ) and [SQlite3](https://www.sqlite.org/download.html) on your device to allow you use the default package manager, gem. 
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+> - gem install rails
 
-* Deployment instructions
+Next, install [Bundler](https://bundler.io/), Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.
 
-* ...
+> - gem install bundler
+
+Clone the repo into a local directory and cd into it, finally install all the gems and dependencies in your terminal with bundler
+
+> - bundle install
+
+## Contributing ##
+
+This is a group project, while cloning and discussions are welcome, Pull requests are not. You can still contribute by starting discussions with us, We'll be available for any inquiries.
+
+## License ##
+ [MIT](https://choosealicense.com/licenses/mit/)
