@@ -1,11 +1,10 @@
 <nav id="navbar" class="header-main">
     <div class="header-main-container">
-    <%= print "/////////#{current_user.is_admin}\\\\\\\\\\\\" %>
-            <div class="header-main-logo">
-                <%= link_to "/" do %>
-                    <h1>BASECAMP</h1>
-                <% end %>
-            </div>
+        <div class="header-main-logo">
+            <%= link_to "/" do %>
+                <h1>BASECAMP</h1>
+            <% end %>
+        </div>
         <div class="header-main-links">
             <% if !logged_in? %>
                 <% if request.path == "/login" %>
