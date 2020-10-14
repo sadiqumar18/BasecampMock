@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @project_thread.project_id %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @project_thread.owner_id %>
+</p>
+
+<p>
+  <strong>Thread title:</strong>
+  <%= @project_thread.thread_title %>
+</p>
+
+<%= link_to 'Edit', edit_project_thread_path(@project_thread) %> |
+<%= link_to 'Back', project_threads_path %>

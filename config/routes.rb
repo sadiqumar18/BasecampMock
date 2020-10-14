@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :attachments
+  resources :thread_messages
+  resources :project_threads
   resources :collaborators
   # get 'welcome/index'
 
