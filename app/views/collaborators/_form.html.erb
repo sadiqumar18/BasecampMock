@@ -1,19 +1,18 @@
 <%= form_with(model: collaborator, local: true) do |form| %>
-  <% if collaborator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(collaborator.errors.count, "error") %> prohibited this collaborator from being saved:</h2>
-
-      <ul>
-        <% collaborator.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <% flash.each do |type, msg| %>
+    <div>
+      <% if msg.class.to_s=="Array"  %>
+        <%= msg.join() and return %>
+      <% else %>
+        <%= msg and return %>
+      <% end %>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :email, 'Add Collaborator' %>
+    <%= form.text_field :email, type: "email"%>
+    <div>Hello World!!!</div>
   </div>
 
   <div class="actions">

@@ -52,7 +52,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      user_details = user_params
       if User.find(params[:id]).update(user_params)
         if current_user.is_admin
           format.html { redirect_to "/users", notice: "User was successfully updated." }
