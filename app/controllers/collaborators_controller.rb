@@ -3,9 +3,10 @@ class CollaboratorsController < ApplicationController
 
   # GET /collaborators
   # GET /collaborators.json
-  def index
-    @collaborators = Collaborator.all
-  end
+  # def index
+  #   @collaborators = Collaborator.all
+  #   # print(@collaborators, ">>>>>>>>>>>><<<<<<<<<<<<<")
+  # end
 
   # GET /collaborators/1
   # GET /collaborators/1.json
@@ -15,6 +16,7 @@ class CollaboratorsController < ApplicationController
   # GET /collaborators/new
   def new
     @collaborator = Collaborator.new
+    @collaborators = Collaborator.all
   end
 
   # GET /collaborators/1/edit
@@ -24,14 +26,21 @@ class CollaboratorsController < ApplicationController
   # POST /collaborators
   # POST /collaborators.json
   def create
-    @collaborator = Collaborator.new(collaborator_params)
-
+    if collaborator_params[:email].empty?
+      return redirect_to request.referer, error: "Email field is required"
+      # respond_to do |format|
+      #     format.html { redirect_to new_collaborator_url(), error: "Email field is required" }
+      #     format.json { render json: @collaborator.errors, status: :unprocessable_entity }
+      # end
+    end
+    user = User.find_by(email: collaborator_params[:email])
+    @collaborator = Collaborator.new(user_id: user.id, project_id: params[:project_id])
     respond_to do |format|
       if @collaborator.save
-        format.html { redirect_to @collaborator, notice: 'Collaborator was successfully created.' }
+        format.html { redirect_to "/projects", notice: 'Collaborator was successfully created.' }
         format.json { render :show, status: :created, location: @collaborator }
       else
-        format.html { render :new }
+        format.html { redirect_to new_collaborator_url(), error: @collaborator.errors.messages.values }
         format.json { render json: @collaborator.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +65,7 @@ class CollaboratorsController < ApplicationController
   def destroy
     @collaborator.destroy
     respond_to do |format|
-      format.html { redirect_to collaborators_url, notice: 'Collaborator was successfully destroyed.' }
+      format.html { redirect_to new_collaborator_url, notice: 'Collaborator was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +78,7 @@ class CollaboratorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def collaborator_params
-      params.require(:collaborator).permit(:user_id)
+      # print(params, ">>>>>>>>>>>><<<<<<<<<<<<<<<")
+      params.fetch(:collaborator).permit(:email, :project_id, :id)
     end
 end
