@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   get :logout, to: "auth#logout", as: "logout"
 
+  resources :projects do
+    resources :project_threads
+  end
+
   # other routes
 
   resources :tasks
