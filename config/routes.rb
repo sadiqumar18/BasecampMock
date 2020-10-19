@@ -22,9 +22,7 @@ Rails.application.routes.draw do
 
   get :logout, to: "auth#logout", as: "logout"
 
-  resources :projects do
-    resources :project_threads
-  end
+  get "get_threads/:id", controller: "project_threads", action: "threads", as: "get_project_thread"
 
   # other routes
 

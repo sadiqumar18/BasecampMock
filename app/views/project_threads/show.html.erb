@@ -7,7 +7,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @project_thread.owner_id %>
+  <%= @project_thread.user.email %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @project_thread.thread_title %>
 </p>
 
-<%= link_to 'Edit', edit_project_thread_path(@project_thread) %> |
-<%= link_to 'Back', project_threads_path %>
+<%= link_to "Edit", edit_project_thread_path(@project_thread) %> |
+<%= link_to "Back", project_threads_path %>
