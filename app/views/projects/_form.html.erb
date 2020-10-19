@@ -1,13 +1,10 @@
 <%= form_with(model: project, local: true, class: "form-container") do |form| %>
   <% if project.errors.any? %>
-    <div id="error_explanation">
+    <div class="error-message" id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
         <% project.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <p><%= message %></p>
         <% end %>
-      </ul>
     </div>
   <% end %>
 
