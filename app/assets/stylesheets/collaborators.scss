@@ -2,5 +2,92 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.collaborator-container {
+    min-height: 75vh;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 10vh;    
+
+}
+
 .collaborator-content-container {
+    margin-top: 2.5%;
+    position: relative;
+    width: 90%;
+    min-height: 55vh;
+    display: flex;
+    justify-content: space-between;  
+}
+
+.collaborator-new-container {
+    width: 55%;
+    height: 90%;
+}
+
+.collaborator-detail-container {
+    width: 40%;
+    height: 90%;
+}
+
+.links-container {
+    height: 5vh;
+    display: grid;
+    place-items: center;
+}
+
+.form-element-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+
+.form-container-title,
+.form-container-description {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+
+.form-container__input-title {
+    width: 50%;
+    padding: 2px 2px;
+    margin: 4px 0px;
+}
+
+.form-container__input-description {
+    padding: 2px 2px;
+    margin: 4px 0px;
+    height: 25vh;
+    width: 80%;
+}
+
+.actions {
+    padding: 10px 0px;
+}
+
+.action-button {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+    margin-top: -5px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    &:hover {
+        transition: all 0.25s ease-in-out;
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+    }
 }
