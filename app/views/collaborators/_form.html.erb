@@ -9,13 +9,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :email, 'Add Collaborator' %>
-    <%= form.text_field :email, type: "email"%>
-    <div>Hello World!!!</div>
+  <div class="form-element-container">
+    <%= form.label :email, 'Add Collaborator', class: "form-container__label-title" %>
+    <%= form.text_field :email, type: "email", class: "form-container__input-title" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Collaborator", class: "action-button" %>
   </div>
 <% end %>

@@ -37,9 +37,9 @@ div.actions {
   color: green; }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
+  outline: 1px solid red;  
+  width: 100%;
+}
 
 #error_explanation {
   width: 450px;

@@ -16,7 +16,7 @@ class CollaboratorsController < ApplicationController
   # GET /collaborators/new
   def new
     @collaborator = Collaborator.new
-    @collaborators = Collaborator.all
+    @collaborators = Collaborator.where(project_id: params[:project_id] )
   end
 
   # GET /collaborators/1/edit
@@ -28,12 +28,12 @@ class CollaboratorsController < ApplicationController
   def create
     if collaborator_params[:email].empty?
       return redirect_to request.referer, error: "Email field is required"
-      # respond_to do |format|
-      #     format.html { redirect_to new_collaborator_url(), error: "Email field is required" }
-      #     format.json { render json: @collaborator.errors, status: :unprocessable_entity }
-      # end
     end
     user = User.find_by(email: collaborator_params[:email])
+    collaborator= Collaborator.find_by(project_id: params[:project_id], user_id: user.id )
+    if collaborator
+      return redirect_to request.referer, error: "User is already part of project"
+    end
     @collaborator = Collaborator.new(user_id: user.id, project_id: params[:project_id])
     respond_to do |format|
       if @collaborator.save
