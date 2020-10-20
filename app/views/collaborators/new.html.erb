@@ -6,9 +6,12 @@
             <h1>New Collaborator</h1>
             <%= render 'form', collaborator: @collaborator %>
         </div>
+        <hr/>
         <div class="collaborator-detail-container">
             <%= render 'index', collaborators: @collaborators %>
         </div>
     </div>
+    <div class="links-container">
     <%= link_to 'Back', projects_path %>
+    </div>
 </div>

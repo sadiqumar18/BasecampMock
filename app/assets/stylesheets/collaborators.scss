@@ -13,6 +13,7 @@
     justify-content: center;
     background-color: white;
     margin-bottom: 10vh;    
+
 }
 
 .collaborator-content-container {
@@ -21,18 +22,21 @@
     width: 90%;
     min-height: 55vh;
     display: flex;
-    justify-content: space-between; 
-    border: 1px solid red;  
+    justify-content: space-between;  
 }
 
 .collaborator-new-container {
     width: 55%;
     height: 90%;
-    border: 1px solid red;
 }
 
 .collaborator-detail-container {
     width: 40%;
     height: 90%;
-    border: 1px solid red;
+}
+
+.links-container {
+    height: 5vh;
+    display: grid;
+    place-items: center;
 }
