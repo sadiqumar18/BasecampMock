@@ -22,9 +22,10 @@
                   </div>
               </div>
               <div class="card-content-methods">
-                <%= link_to 'Add Collaborators', new_collaborator_path(project_id: project.id), class: "edit text" %>
-                <%= link_to 'Edit', edit_project_path(project), class: "edit text" %>
-                <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete text" %>
+                <%= link_to "Add Collaborators", new_collaborator_path(project_id: project.id), class: "edit text" %>
+                 <%= link_to "Threads", get_project_thread_path(id: project.id), class: "edit text" %>
+                <%= link_to "Edit", edit_project_path(project), class: "edit text" %>
+                <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure?" }, class: "delete text" %>
               </div>
             </div>
 

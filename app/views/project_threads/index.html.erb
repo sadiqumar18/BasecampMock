@@ -5,9 +5,11 @@
 
   <div class="projects-content-container">
     <div class="projects-view-container">
-      <h1>Projects</h1>
+      <h1>Threads</h1>
 
   <div class="project-view-container">
+
+ <% if !@project_threads.nil? %>
   <% @project_threads.each do |project_thread| %>
 
             <div class="card">
@@ -30,13 +32,14 @@
             </div>
 
         <% end %>
+        <% end %>
 
 
 </div>
 
     </div>
     <div class="new-project-container">
-      <%= link_to new_project_thread_path do %>
+      <%= link_to new_project_thread_path(:project_id => params[:id]) do %>
         <div class="svg-container">
           <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 48 48"><title>ic_plus_one_48px</title>
               <g fill="#000">

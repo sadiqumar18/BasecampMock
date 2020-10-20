@@ -5,7 +5,7 @@ class ProjectThreadsController < ApplicationController
   # GET /project_threads
   # GET /project_threads.json
   def index
-    @project_threads = ProjectThread.all
+    @project_threads
   end
 
   # GET /project_threads/1
@@ -14,8 +14,8 @@ class ProjectThreadsController < ApplicationController
   end
 
   def threads
-    @project_threads = current_user.project_threads
-    redirect_to(projects_url, :notice => "Record not found") unless @project_threads.any?
+    @project_threads = current_user.project_threads.where(project_id: params[:id])
+    render action: "index"
   end
 
   # GET /project_threads/new
@@ -30,7 +30,7 @@ class ProjectThreadsController < ApplicationController
   # POST /project_threads
   # POST /project_threads.json
   def create
-    @project_thread = ProjectThread.new(project_thread_params)
+    @project_thread = current_user.project_threads.new(project_thread_params)
 
     respond_to do |format|
       if @project_thread.save
