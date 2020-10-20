@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field :project_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner_id %>
-    <%= form.text_field :owner_id %>
+   
+    <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
   </div>
 
   <div class="field">
