@@ -60,9 +60,10 @@ class ProjectThreadsController < ApplicationController
   # DELETE /project_threads/1
   # DELETE /project_threads/1.json
   def destroy
-    @project_thread.destroy
+    @project_thread = ProjectThread.find(params[:id])
+    @project_thread.destroy()
     respond_to do |format|
-      format.html { redirect_to project_threads_url, notice: "Project thread was successfully destroyed." }
+      format.html { redirect_to get_project_thread_url(@project_thread.project.id), notice: "Project thread was successfully destroyed." }
       format.json { head :no_content }
     end
   end

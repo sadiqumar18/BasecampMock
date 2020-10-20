@@ -16,4 +16,4 @@
 </p>
 
 <%= link_to "Edit", edit_project_thread_path(@project_thread) %> |
-<%= link_to "Back", project_threads_path %>
+<%= link_to "Back", get_project_thread_url(@project_thread.project.id) %>
