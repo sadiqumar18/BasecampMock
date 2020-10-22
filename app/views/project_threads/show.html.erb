@@ -15,5 +15,14 @@
   <%= @project_thread.thread_title %>
 </p>
 
+
+
+<hr/>
+<div class="thread-message-detail-container">
+    <%= render 'thread_messages/index', messages: @thread_messages %>
+</div>
+
+
 <%= link_to "Edit", edit_project_thread_path(@project_thread) %> |
-<%= link_to "Back", get_project_thread_url(@project_thread.project.id) %>
+<%= link_to "Back", get_project_thread_path(id: @project_thread.project.id) %> |
+<%= link_to "Create a message", create_thread_message_path(project_thread_id: @project_thread.id) %> |

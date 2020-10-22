@@ -11,6 +11,7 @@ class ProjectThreadsController < ApplicationController
   # GET /project_threads/1
   # GET /project_threads/1.json
   def show
+    @thread_messages = ThreadMessage.where(project_thread_id: params[:id])
   end
 
   def threads

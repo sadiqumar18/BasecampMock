@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Thread:</strong>
-  <%= @thread_message.thread_id %>
+  <strong>Message ID:</strong>
+  <%= @thread_message.id %>
+</p>
+<p>
+  <strong>Message Author:</strong>
+  <%= "#{@thread_message.user.firstName} #{@thread_message.user.lastName}" %>
 </p>
 
 <p>
@@ -10,5 +14,13 @@
   <%= @thread_message.message %>
 </p>
 
-<%= link_to 'Edit', edit_thread_message_path(@thread_message) %> |
-<%= link_to 'Back', thread_messages_path %>
+<%= link_to 'Edit', edit_thread_message_path(project_thread_id: @thread_message.project_thread_id, id: @thread_message.id) %> |
+<%# <%= link_to 'Back', thread_messages_path %>
+<%= link_to 'Reply', reply_thread_message_path(project_thread_id: @thread_message.project_thread_id, parent_message_id: @thread_message.id) %> |
+<%= link_to 'Back to thread', project_thread_path(id: @thread_message.project_thread_id) %>
+
+<div>
+  <h3>Thread Messages and replies</h3>
+
+
+</div>
