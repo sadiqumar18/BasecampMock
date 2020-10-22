@@ -11,16 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field :project_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :uploaded_by %>
-    <%= form.text_field :uploaded_by %>
-  </div>
-
+  <%= form.file_field :image %>
    
   <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
 
