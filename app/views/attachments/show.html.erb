@@ -7,7 +7,7 @@
 
 <p>
   <strong>Uploaded by:</strong>
-  <%= @attachment.uploaded_by %>
+  <%= @attachment.user.email %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @attachment.file_name %>
 </p>
 
-<%= link_to 'Edit', edit_attachment_path(@attachment) %> |
-<%= link_to 'Back', attachments_path %>
+<%= link_to "Edit", edit_attachment_path(@attachment) %> |
+<%= link_to "Back", attachments_path %>

@@ -21,6 +21,9 @@
     <%= form.text_field :uploaded_by %>
   </div>
 
+   
+  <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
+
   <div class="field">
     <%= form.label :file_name %>
     <%= form.text_area :file_name %>

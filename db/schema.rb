@@ -13,11 +13,13 @@
 ActiveRecord::Schema.define(version: 2020_10_14_104403) do
 
   create_table "attachments", force: :cascade do |t|
-    t.string "project_id"
-    t.string "uploaded_by"
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
     t.text "file_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_attachments_on_project_id"
+    t.index ["user_id"], name: "index_attachments_on_user_id"
   end
 
   create_table "collaborators", force: :cascade do |t|
@@ -59,12 +61,10 @@ ActiveRecord::Schema.define(version: 2020_10_14_104403) do
   end
 
   create_table "thread_messages", force: :cascade do |t|
+    t.string "thread_id"
     t.text "message"
-    t.string "author"
-    t.integer "thread_message_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["thread_message_id"], name: "index_thread_messages_on_thread_message_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,11 +77,12 @@ ActiveRecord::Schema.define(version: 2020_10_14_104403) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attachments", "projects"
+  add_foreign_key "attachments", "users"
   add_foreign_key "collaborators", "projects"
   add_foreign_key "collaborators", "users"
   add_foreign_key "project_threads", "projects"
   add_foreign_key "project_threads", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
-  add_foreign_key "thread_messages", "thread_messages"
 end
