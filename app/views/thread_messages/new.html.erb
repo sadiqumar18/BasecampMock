@@ -1,5 +1,7 @@
 <h1>New Thread Message</h1>
-
-<%= render 'form', thread_message: @thread_message %>
-
-<%= link_to 'Back', thread_messages_path %>
+<% if "#{request.path.include? "reply"}" %>
+  <%= render 'form', thread_message: @thread_message, user_id:current_user.id, mode: "reply", parent_message_uuid: params[:parent_message_id] %>
+<% else %>
+  <%= render 'form', thread_message: @thread_message, user_id:current_user.id, mode: "new"%>
+<% end %>
+<%= link_to 'Back', project_threads_path %>

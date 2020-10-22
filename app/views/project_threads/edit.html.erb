@@ -3,4 +3,4 @@
 <%= render "form", project_thread: @project_thread %>
 
 <%= link_to "Show", @project_thread %> |
-<%= link_to "Back", get_project_thread_url(@project_thread.project.id) %>
+<%= link_to "Back", project_thread_path(id: @project_thread.id) %>

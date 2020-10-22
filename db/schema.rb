@@ -60,11 +60,14 @@ ActiveRecord::Schema.define(version: 2020_10_14_104403) do
 
   create_table "thread_messages", force: :cascade do |t|
     t.text "message"
-    t.string "author"
     t.integer "thread_message_id"
+    t.integer "project_thread_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_thread_id"], name: "index_thread_messages_on_project_thread_id"
     t.index ["thread_message_id"], name: "index_thread_messages_on_thread_message_id"
+    t.index ["user_id"], name: "index_thread_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,5 +86,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_104403) do
   add_foreign_key "project_threads", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
+  add_foreign_key "thread_messages", "project_threads"
   add_foreign_key "thread_messages", "thread_messages"
+  add_foreign_key "thread_messages", "users"
 end
