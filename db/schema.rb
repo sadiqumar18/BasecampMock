@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_104403) do
   end
 
   create_table "thread_messages", force: :cascade do |t|
+    t.string "thread_id"
     t.text "message"
     t.integer "thread_message_id"
     t.integer "project_thread_id", null: false
