@@ -1,4 +1,20 @@
-<%= form_with(model: thread_message, local: true) do |form| %>
+<% if mode == "new"
+  url_path= get_thread_message_form_path
+  button_name = "Create New Message"
+  thread_message_id=nil
+
+elsif mode == "reply"
+  url_path= reply_thread_message_path
+  button_name = "Reply Message"
+  thread_message_id=parent_message_uuid
+else
+  url_path= edit_thread_message_path
+  button_name = "Edit Message"
+  thread_message_id=params[:parent_message_id]
+end
+%>
+
+<%= form_with(url: url_path, local: true) do |form| %>
   <% if thread_message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(thread_message.errors.count, "error") %> prohibited this thread_message from being saved:</h2>
@@ -12,16 +28,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :thread_id %>
-    <%= form.text_field :thread_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :message %>
-    <%= form.text_area :message %>
+    <% if thread_message.id %>
+      <%= form.text_area :message, :value=>thread_message.message %>
+    <% else %>
+      <%= form.text_area :message %>
+    <% end %>
   </div>
-
+    <%= form.text_field :user_id, :value => user_id, :type => "hidden" %>
+    <%= form.text_field :project_thread_id, :value => params[:project_thread_id], :type => "hidden" %>
+    <%= form.text_field :thread_message_id, :value => thread_message_id, :type => "hidden" %>
   <div class="actions">
-    <%= form.submit %>
+  <% %>
+    <%= form.submit button_name %>
   </div>
 <% end %>

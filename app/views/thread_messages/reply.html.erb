@@ -1,0 +1,3 @@
+<h1>Add a reply</h1>
+<%= render 'form', thread_message: @thread_message, user_id:current_user.id, mode: "reply", parent_message_uuid: params[:parent_message_id] %>
+<%= link_to 'Back', project_threads_path %>
