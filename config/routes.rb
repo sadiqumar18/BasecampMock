@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get :logout, to: "auth#logout", as: "logout"
 
   get "get_threads/:id", controller: "project_threads", action: "threads", as: "get_project_thread"
+  get "get_attachments/:id", controller: "attachments", action: "attachment", as: "get_attachments"
+
   post "thread_messages/:project_thread_id", to: "thread_messages#create", as: "create_thread_message"
   get "thread_messages/:project_thread_id/reply/:parent_message_id", to: "thread_messages#new", as: "reply_thread_message"
   post "thread_messages/:project_thread_id/reply/:parent_message_id", to: "thread_messages#reply"

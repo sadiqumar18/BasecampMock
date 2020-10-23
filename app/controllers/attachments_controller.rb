@@ -1,10 +1,16 @@
 class AttachmentsController < ApplicationController
+  include SessionHelper
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments
   # GET /attachments.json
   def index
     @attachments = Attachment.all
+  end
+
+  def attachment
+    @attachments = current_user.attachments.where(project_id: params[:id])
+    render action: "index"
   end
 
   # GET /attachments/1
@@ -24,14 +30,14 @@ class AttachmentsController < ApplicationController
   # POST /attachments
   # POST /attachments.json
   def create
-    @attachment = Attachment.new(attachment_params)
+    @attachment = current_user.attachments.new(attachment_params)
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully created." }
         format.json { render :show, status: :created, location: @attachment }
       else
-        format.html { render :new }
+        format.html { redirect_to new_attachment_path(project_id: @attachment.project_id), notice: @attachment.errors }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +48,7 @@ class AttachmentsController < ApplicationController
   def update
     respond_to do |format|
       if @attachment.update(attachment_params)
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
+        format.html { redirect_to @attachment, notice: "Attachment was successfully updated." }
         format.json { render :show, status: :ok, location: @attachment }
       else
         format.html { render :edit }
@@ -56,19 +62,20 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_attachment
-      @attachment = Attachment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def attachment_params
-      params.require(:attachment).permit(:project_id, :uploaded_by, :file_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_attachment
+    @attachment = Attachment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def attachment_params
+    params.require(:attachment).permit(:project_id, :file_name, :file)
+  end
 end

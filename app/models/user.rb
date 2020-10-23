@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :projects, dependent: :destroy
   has_many :project_threads, dependent: :destroy
+  has_many :attachments, dependent: :destroy
 
   validates_presence_of :email
   validates_uniqueness_of :email
