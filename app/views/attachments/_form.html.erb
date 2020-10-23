@@ -12,8 +12,8 @@
   <% end %>
 
 
-  <%= form.file_field :image %>
-   
+  <%= form.file_field :file %>
+   <%= params[:project_id] %>
   <%= form.text_field :project_id, :value => params[:project_id], :type => "hidden" %>
 
   <div class="field">

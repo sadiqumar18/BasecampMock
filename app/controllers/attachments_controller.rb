@@ -34,10 +34,10 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: "Attachment was successfully created." }
+        format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully created." }
         format.json { render :show, status: :created, location: @attachment }
       else
-        format.html { render :new }
+        format.html { redirect_to new_attachment_path(project_id: @attachment.project_id), notice: @attachment.errors }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
@@ -62,7 +62,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: "Attachment was successfully destroyed." }
+      format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -76,6 +76,6 @@ class AttachmentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def attachment_params
-    params.require(:attachment).permit(:project_id, :file_name)
+    params.require(:attachment).permit(:project_id, :file_name, :file)
   end
 end
