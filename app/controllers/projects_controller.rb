@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   def index
     if current_user.is_admin
       @projects = Project.order(id: :desc)
+      # print(@projects.project_threads.length, ">>>><<<<")
     else
       @projects = current_user.projects
     end
@@ -16,6 +17,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project_threads = @project.project_threads
+    @collaborators = @project.collaborators
   end
 
   # GET /projects/new

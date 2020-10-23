@@ -9,8 +9,8 @@
 
   <div class="project-view-container">
 
- <% if !@project_threads.nil? %>
-  <% @project_threads.each do |project_thread| %>
+  <% if !project_threads_list.nil? %>
+  <% project_threads_list.each do |project_thread| %>
 
             <div class="card">
               <div class="card-content-container">
@@ -27,7 +27,7 @@
                 <%= link_to "Show", project_thread, class: "edit text" %>
                 <%= link_to "Edit", edit_project_thread_path(project_thread), class: "edit text" %>
                 <%= link_to "Destroy", project_thread, method: :delete, data: { confirm: "Are you sure?" }, class: "delete text" %>
-          
+
               </div>
             </div>
 
