@@ -5,7 +5,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = Attachment.all
+    @attachments = current_user.attachments
   end
 
   def attachment
