@@ -12,12 +12,13 @@
 </div>
 
 <div>
-<%= render 'project_threads/index', project_threads_list: @project_threads, collaborators: @project_collaborators %>
-<%= render 'collaborators/index' %>
+<%= render "project_threads/index", project_threads_list: @project_threads, collaborators: @project_collaborators %>
+<%= render "collaborators/index" %>
+<%= render "attachments/index", project: @project %>
 </div>
 <div>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to "Edit", edit_project_path(@project) %> |
+<%= link_to "Back", projects_path %>
 </div>
 
 </div>
