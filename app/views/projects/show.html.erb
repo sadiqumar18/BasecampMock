@@ -1,24 +1,25 @@
 <%= stylesheet_link_tag "project" %>
 <div class="projects-container">
-
-<div class="project-show-container">
-
-<div class="project-show-header">
-<h1><%= @project.name %></h1>
-</div>
-
-<div class="project-show-content">
-<p><%= @project.description %></p>
-</div>
-
-<div>
-<%= render 'project_threads/index', project_threads_list: @project_threads, collaborators: @project_collaborators %>
-<%= render 'collaborators/index' %>
-</div>
-<div>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
-</div>
-
-</div>
+    <div class="title-div">
+        <div class="project-collaborator-div">
+            <div class="project-show-container">
+                <div class="project-show-header">
+                <h1><%= @project.name %></h1>
+                </div>
+                <div class="project-show-content">
+                <p><%= @project.description %></p>
+                </div>
+            </div>
+            <div class="project-collaborator-container">
+                <%= render 'collaborators/index' %>
+            </div>
+        </div>
+    </div>
+    <div class="project-threads-container">
+        <%= render 'project_threads/index', project_threads_list: @project_threads, collaborators: @project_collaborators %>
+    </div>
+    <div>
+        <%= link_to 'Edit', edit_project_path(@project) %> |
+        <%= link_to 'Back', projects_path %>
+    </div>
 </div>

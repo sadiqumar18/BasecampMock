@@ -1,3 +1,92 @@
-// Place all the styles related to the projectThreads controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.threads-container {
+    width: 90%;
+    margin: auto;
+}
+
+.threads-content-container {
+
+}
+
+.threads-view-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        padding: 5px 5px;
+        color: white;
+        background-color: grey;
+        box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+        border: 1px solid transparent;
+
+        &:hover {
+            transition: all 0.2s ease-in;
+            background-color: white;
+            color: grey;
+            border: 1px solid grey;
+        }
+    }
+}
+
+.new-thread-container {
+
+}
+
+.thread-view-container {
+
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    height: 75px;
+    padding: 20px 0px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+    align-items: center;
+    border: 1px solid transparent;
+    width: 95%;
+    margin: 1rem 0;
+
+    .card-content-container,
+    .card-content-methods {
+        padding: 0px 10px;
+    }
+
+    .card-content-methods {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &:hover {
+        transition: all 0.25s ease-out;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+        border: 1px solid grey;
+        background-color: rgba(0,0,0,0.05);
+    }
+
+    .card-header {
+        padding: 3px 2px;
+        border: 1px solid transparent;
+    }
+
+    .card-content-summary {
+        display: flex;
+        
+        p {
+            padding: 0px 2px;
+            font-size: 12px;
+        }
+    }
+
+    .card-header:hover {
+        transition: all 0.25s ease-in;
+        color: black;
+        background-color: rgba(0, 128, 0, 0.3);
+        border: 1px solid white;
+    } 
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        height: 200px;
+    }
+}

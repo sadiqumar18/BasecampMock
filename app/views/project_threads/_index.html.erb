@@ -1,13 +1,18 @@
-<%= stylesheet_link_tag "project" %>
+<%= stylesheet_link_tag "project_threads" %>
 <p id="notice"><%= notice %></p>
 
-<div class="projects-container">
+<div class="threads-container">
 
-  <div class="projects-content-container">
-    <div class="projects-view-container">
+  <div class="threads-content-container">
+    <div class="threads-view-container">
       <h1>Threads</h1>
-
-  <div class="project-view-container">
+      <div class="new-thread-container">
+        <%= link_to new_project_thread_path(:project_id => params[:id]) do %>
+          <p>Create New Thread</p>
+        <% end %>
+      </div>
+    </div>
+  <div class="thread-view-container">
 
   <% if !project_threads_list.nil? %>
   <% project_threads_list.each do |project_thread| %>
@@ -21,37 +26,17 @@
                 <% end %>
                   <div class="card-content-summary">
                     <p><%= project_thread.user.email %>....<p>
+                    <p><%= project_thread.created_at %></p>
                   </div>
-              </div>
-              <div class="card-content-methods">
-                <%= link_to "Show", project_thread, class: "edit text" %>
-                <%= link_to "Edit", edit_project_thread_path(project_thread), class: "edit text" %>
-                <%= link_to "Destroy", project_thread, method: :delete, data: { confirm: "Are you sure?" }, class: "delete text" %>
-
               </div>
             </div>
 
         <% end %>
         <% end %>
 
-
 </div>
 
-    </div>
-    <div class="new-project-container">
-      <%= link_to new_project_thread_path(:project_id => params[:id]) do %>
-        <div class="svg-container">
-          <svg xmlns="http://www.w3.org/2000/svg" width="50%" height="50%" viewBox="0 0 48 48"><title>ic_plus_one_48px</title>
-              <g fill="#000">
-                  <path d="M20 16h-4v8H8v4h8v8h4v-8h8v-4h-8zm9-3.84v3.64l5-1V36h4V10z"></path>
-              </g>
-          </svg>
-          <h3>Create New Thread</h3>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
-
-
-<%= link_to "New Project Thread", new_project_thread_path %>
+</div>
