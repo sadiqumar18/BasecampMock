@@ -34,7 +34,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully created." }
+        format.html { redirect_to "/projects/#{@attachment.project_id}", notice: "Attachment was successfully created." }
         format.json { render :show, status: :created, location: @attachment }
       else
         format.html { redirect_to new_attachment_path(project_id: @attachment.project_id), notice: @attachment.errors }
@@ -62,7 +62,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to get_attachments_path(id: @attachment.project_id), notice: "Attachment was successfully destroyed." }
+      format.html { redirect_to "/projects/#{@attachment.project_id}", notice: "Attachment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
